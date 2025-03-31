@@ -1,0 +1,161 @@
+$spacing-unit: 16px;
+
+.header {
+  width: 280px;
+  min-height: 100vh;
+  color: black;
+  padding: $spacing-unit;
+  background: $primary-color;
+  position: fixed;
+  left: 0;
+  top: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+  }
+
+  &__nav-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  &__nav-rectangle {
+    position: relative;
+    height: 48px;
+    width: 4px;
+    margin-left: 0px;
+    align-items: start;
+    justify-content: start;
+  }
+
+  &__nav-icon-container {
+    display: flex;
+    align-items: center;
+    gap: 1px;
+  }
+
+  &__nav-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+  }
+
+  &__logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: $spacing-unit * 2;
+    background-color: #d9d9d9;
+    height: 52px;
+    width: 178px;
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &__menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: black;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-left: auto;
+  }
+
+  &__nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 100%;
+  }
+
+  &__nav-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: $spacing-unit;
+    flex-shrink: 0;
+  }
+
+  &__divider {
+    width: 219px;
+    height: 1px;
+    margin: $spacing-unit 0;
+  }
+
+  &__divider-container {
+    padding: $spacing-unit 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    padding: 8px $spacing-unit;
+    min-height: 40px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  &__nav-link {
+    text-decoration: none;
+    color: inherit;
+    white-space: nowrap;
+    line-height: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__bottom-items {
+    margin-top: auto;
+    width: 100%;
+    padding-top: $spacing-unit * 2;
+
+    .header__nav-list {
+      gap: 8px;
+    }
+
+    li {
+      padding: 8px $spacing-unit;
+    }
+  }
+}
+
+/* For mobile responsiveness */
+@media (max-width: 768px) {
+  .header {
+    width: 100%;
+    min-height: auto;
+    position: relative;
+
+    &__menu-toggle {
+      display: block;
+    }
+
+    &__nav-content {
+      display: none;
+
+      &.active {
+        display: flex;
+      }
+    }
+  }
+}

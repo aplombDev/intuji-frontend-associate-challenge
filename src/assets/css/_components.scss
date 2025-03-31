@@ -1,0 +1,64 @@
+.hero {
+  text-align: center;
+  padding: $spacing-unit * 3 0;
+
+  &__title {
+    font-size: 2.5rem;
+    margin-bottom: $spacing-unit;
+  }
+
+  &__description {
+    font-size: 1.2rem;
+    opacity: 0.8;
+  }
+}
+
+.main {
+  width: 722px;
+  height: 64px;
+  margin-top: 10px;
+  margin-left: 300px;
+  background-color: #ffc0cb;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+}
+
+.overview {
+  width: 717px;
+  height: 430px;
+  margin-top: 60px;
+  border-radius: 8px;
+  background-color: #90ee90;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  margin-left: 20px;
+}
+
+// Mobile menu (hidden by default)
+@media (max-width: $tablet) {
+  .header {
+    &__nav-list {
+      display: none;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      background: $primary-color;
+      flex-direction: column;
+      padding: $spacing-unit;
+
+      &.active {
+        display: flex;
+      }
+    }
+
+    &__menu-toggle {
+      display: block;
+    }
+  }
+}
