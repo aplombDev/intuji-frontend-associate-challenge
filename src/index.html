@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>intuji</title>
     <link rel="stylesheet" href="./assets/css/main.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
     <aside class="header">
@@ -99,20 +100,286 @@
 
     <div>
       <header class="main">
-        <div class="search-container"></div>
+        <div class="search-container">
+          <img
+            src="./assets/images/search-normal.png"
+            class="search-container_img"
+          />
+          <span class="">Search here...</span>
+        </div>
       </header>
+
+      <div class="overview">
+        <section class="overview_header">
+          <div class="title">Overview</div>
+        </section>
+
+        <div class="content-grid">
+          <!-- First Card (Balance) -->
+          <div class="first-div">
+            <div>
+              <img src="./assets/images/empty-wallet.png" alt="Wallet" />
+              <span>Your Balance</span>
+            </div>
+            <div class="comparison-text">
+              <img
+                src="./assets/images/export4.png"
+                alt="Arrow"
+                class="comparison-arrow"
+              />
+              <span>15% compared with last month</span>
+            </div>
+            <img
+              src="./assets/images/Line 27.png"
+              alt="Divider"
+              class="divider"
+            />
+            <div>
+              <span>$28,891.138</span>
+              <img
+                src="assets/images/arrow-right.png"
+                class="first-right-arrow"
+                alt="Arrow"
+              />
+            </div>
+          </div>
+
+          <!-- Second Card (Saving) -->
+          <div class="second-div">
+            <div>
+              <img src="./assets/images/save-2.png" alt="Save" />
+              <span>Saving</span>
+            </div>
+            <div class="comparison-text">
+              <img
+                src="./assets/images/export.png"
+                alt="Arrow"
+                class="comparison-arrow"
+              />
+              <span>10% compared with last month</span>
+            </div>
+            <img
+              src="./assets/images/Line 27.png"
+              alt="Divider"
+              class="divider"
+            />
+            <div>
+              <span>$1,050.44</span>
+              <img src="assets/images/arrow-right.png" alt="Arrow" />
+            </div>
+          </div>
+
+          <!-- Third Card (Expenses) -->
+          <div class="third-div">
+            <div>
+              <img src="./assets/images/direct-up.png" alt="Expenses" />
+              <span>Expenses</span>
+            </div>
+            <div class="comparison-text">
+              <img
+                src="./assets/images/export2.png"
+                alt="Arrow"
+                class="comparison-arrow"
+              />
+              <span>2% compared with last month</span>
+            </div>
+            <img
+              src="./assets/images/Line 27.png"
+              alt="Divider"
+              class="divider"
+            />
+            <div>
+              <span>$200.31</span>
+              <img src="assets/images/arrow-right.png" alt="Arrow" />
+            </div>
+          </div>
+
+          <!-- Fourth Card (Incomes) -->
+          <div class="fourth-div">
+            <div>
+              <img src="./assets/images/direct-down.png" alt="Incomes" />
+              <span>Incomes</span>
+            </div>
+            <div class="comparison-text">
+              <img
+                src="./assets/images/export1.png"
+                alt="Arrow"
+                class="comparison-arrow"
+              />
+              <span>8% compared with last month</span>
+            </div>
+            <img
+              src="./assets/images/Line 27.png"
+              alt="Divider"
+              class="divider"
+            />
+            <div>
+              <span>$21,121.0</span>
+              <img src="assets/images/arrow-right.png" alt="Arrow" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="analytics">
+        <section class="analytics-header">
+          <div class="analytics-title">Analytics</div>
+          <div class="header-right">
+            <div class="legend">
+              <div class="legend-item">
+                <img src="./assets/images/Ellipse 1494.png" />
+                <span>Label 1</span>
+              </div>
+              <div class="legend-item">
+                <img src="./assets/images/Ellipse 1494 (1).png" />
+                <span>Label 1</span>
+              </div>
+            </div>
+            <div class="time-filter">
+              <span>Weekly</span>
+              <img src="./assets/images/Vector.png" class="cus-arrow" />
+            </div>
+          </div>
+        </section>
+        <div class="chart-container">
+          <canvas id="myChart"></canvas>
+        </div>
+      </div>
     </div>
 
     <div>
-      <section><div class="overview"></div></section>
-    </div>
+      <section class="profile">
+        <div><img src="./assets//images/notification-bing.png" /></div>
+        <div><img src="./assets//images/message-text.png" /></div>
+        <div><img src="./assets//images/gallery.png" /></div>
+        <div>Mirie kiritani</div>
+        <div><img src="./assets//images/arrow-down.png" /></div>
+      </section>
 
-    <div>
-      <section>Section 1</section>
-    </div>
+      <div class="savingPlan">
+        <section class="savingPlan_header">
+          <div class="aside">Saving Plan</div>
+          <div class="see all">See All</div>
+        </section>
 
-    <div>
-      <aside>Aside Right</aside>
+        <section class="savingPlan_line">
+          <img src="./assets/images/Line 27.png" alt="Divider line" />
+        </section>
+
+        <section class="savingPlan_content">
+          <div class="goal-title">Bali vacation</div>
+          <div class="target-date">Target: Aug 25 2022</div>
+        </section>
+
+        <br />
+        <section class="savingPlan_content">
+          <div class="goal-title">New Gadget</div>
+          <div class="target-date">Target: Aug 25 2022</div>
+        </section>
+
+        <br />
+        <section class="savingPlan_content">
+          <div class="goal-title">Charity</div>
+          <div class="target-date">Target: Aug 25 2022</div>
+        </section>
+      </div>
+
+      <div class="recentTxns">
+        <section class="recentTxns_header">
+          <div class="aside">Recent Transaction</div>
+          <a href="#" class="see all">See All</a>
+        </section>
+
+        <section class="recentTxns_line">
+          <img src="./assets/images/Line 27.png" alt="Divider line" />
+        </section>
+
+        <section class="recentTxns_content">
+          <!-- Transaction Item 1 -->
+          <div class="txn-item">
+            <div class="txn-info">
+              <div class="txn-icon-wrapper">
+                <img
+                  src="./assets/images/gallery.png"
+                  class="txn-icon"
+                  alt="Figma"
+                />
+              </div>
+              <div class="txn-details">
+                <span class="txn-title">Figma</span>
+                <div class="txn-date">August 20, 2022</div>
+              </div>
+            </div>
+            <div class="txn-right-group">
+              <span class="txn-amount">$100</span>
+              <div class="txn-status">Completed</div>
+            </div>
+          </div>
+
+          <!-- Transaction Item 2 -->
+          <div class="txn-item">
+            <div class="txn-info">
+              <div class="txn-icon-wrapper">
+                <img
+                  src="./assets/images/gallery.png"
+                  class="txn-icon"
+                  alt="YouTube"
+                />
+              </div>
+              <div class="txn-details">
+                <span class="txn-title">YouTube</span>
+                <div class="txn-date">August 20, 2022</div>
+              </div>
+            </div>
+            <div class="txn-right-group">
+              <span class="txn-amount">$128</span>
+              <div class="txn-status">Completed</div>
+            </div>
+          </div>
+
+          <!-- Transaction Item 3 -->
+          <div class="txn-item">
+            <div class="txn-info">
+              <div class="txn-icon-wrapper">
+                <img
+                  src="./assets/images/gallery.png"
+                  class="txn-icon"
+                  alt="YouTube"
+                />
+              </div>
+              <div class="txn-details">
+                <span class="txn-title">Spotify</span>
+                <div class="txn-date">August 20, 2022</div>
+              </div>
+            </div>
+            <div class="txn-right-group">
+              <span class="txn-amount">$15</span>
+              <div class="txn-status">Completed</div>
+            </div>
+          </div>
+
+          <!-- Transaction Item 4 -->
+          <div class="txn-item">
+            <div class="txn-info">
+              <div class="txn-icon-wrapper">
+                <img
+                  src="./assets/images/gallery.png"
+                  class="txn-icon"
+                  alt="YouTube"
+                />
+              </div>
+              <div class="txn-details">
+                <span class="txn-title">Freepik</span>
+                <div class="txn-date">August 20, 2022</div>
+              </div>
+            </div>
+            <div class="txn-right-group">
+              <span class="txn-amount">$300</span>
+              <div class="txn-status">Completed</div>
+            </div>
+          </div>
+        </section>
+      </div>
     </div>
 
     <script src="./assets/js/main.js"></script>

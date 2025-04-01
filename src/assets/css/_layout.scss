@@ -1,5 +1,11 @@
 $spacing-unit: 16px;
 
+.content-wrapper {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+}
+
 .header {
   width: 280px;
   min-height: 100vh;
@@ -14,6 +20,7 @@ $spacing-unit: 16px;
   flex-direction: column;
   font-size: 16px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 100;
 
   &__nav {
     display: flex;
@@ -139,16 +146,40 @@ $spacing-unit: 16px;
   }
 }
 
-/* For mobile responsiveness */
-@media (max-width: 768px) {
+.main-content {
+  flex: 1;
+  margin-left: 280px;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.right-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 350px;
+}
+
+.main-sections {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+}
+
+@media (max-width: $tablet) {
+  body {
+    flex-direction: column;
+  }
+
   .header {
     width: 100%;
     min-height: auto;
     position: relative;
-
-    &__menu-toggle {
-      display: block;
-    }
+    padding: 10px;
 
     &__nav-content {
       display: none;
@@ -156,6 +187,80 @@ $spacing-unit: 16px;
       &.active {
         display: flex;
       }
+    }
+
+    &__menu-toggle {
+      display: block;
+    }
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding: 15px;
+    flex-direction: column;
+  }
+
+  .right-sidebar {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    > * {
+      flex: 1 1 300px;
+    }
+  }
+
+  .profile {
+    order: 1;
+  }
+
+  .savingPlan,
+  .recentTransaction {
+    order: 2;
+  }
+
+  .main {
+    order: 3;
+  }
+
+  .overview,
+  .analytics {
+    order: 4;
+  }
+}
+
+@media (max-width: $mobile) {
+  .header {
+    &__logo {
+      width: 150px;
+    }
+
+    &__nav-list {
+      flex-direction: column;
+      gap: 15px;
+    }
+  }
+
+  .main {
+    height: auto;
+    padding: 10px;
+  }
+
+  .profile {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 10px;
+
+    > div {
+      margin: 5px;
+    }
+  }
+
+  .right-sidebar {
+    flex-direction: column;
+
+    > * {
+      flex: 1 1 100%;
     }
   }
 }
