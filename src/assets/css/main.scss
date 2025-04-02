@@ -1,8 +1,15 @@
 // Import partials (should be at the top)
 @import "variables";
 @import "base";
-@import "layout";
+@import "sidebar";
 @import "components";
+@import "search";
+@import "overview";
+@import "_analytics";
+@import "profile";
+@import "savingPlan";
+@import "recentTxns";
+@import "animations";
 
 // Corrected @font-face declarations
 @font-face {

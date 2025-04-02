@@ -1,0 +1,42 @@
+// Hamburger Menu Styles
+.hamburger-menu {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+  cursor: pointer;
+  margin-right: 15px;
+}
+
+.hamburger-menu span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background-color: var(--text-dark);
+  transition: all 0.3s ease;
+}
+
+// Responsive Styles
+@media screen and (max-width: 992px) {
+  .hamburger-menu {
+    display: flex;
+  }
+
+  .main-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: fixed;
+    left: -100%;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .sidebar.active {
+    left: 0;
+    height: 100%;
+  }
+}
