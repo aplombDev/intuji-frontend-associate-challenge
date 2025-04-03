@@ -18,7 +18,7 @@
 .section-title {
   font-size: 20px;
   font-weight: 700;
-  color: var(--text-dark);
+  color: #0d163a;
 }
 
 .plan-header {
@@ -28,6 +28,7 @@
 }
 
 .plan-title {
+  font-size: 16px;
   font-weight: 500;
 }
 
@@ -45,13 +46,15 @@
 
 .discounted-price {
   font-size: 20px;
-  font-weight: bold;
+  font-weight: 600;
   color: var(--text-color);
 }
 
 .orginal-price {
   font-size: 12px;
-  font-weight: 400;
+  font-weight: 600;
+  opacity: 50%;
+  color: #0d163a;
 }
 
 .plan-percentage {

@@ -17,14 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
     data: {
       weekly: {
         labels: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-        blueData: [
-          14000, 10500, 13500, 5800, 15000, 12000, 13500, 7800, 20000, 8000,
-          18000, 14500,
-        ],
-        yellowData: [
-          4800, 6000, 9000, 5500, 6000, 10000, 7500, 4500, 6000, 7500, 5000,
-          9000,
-        ],
+        blueData: [14000, 10500, 13500, 5800, 15000, 12000, 13500],
+        yellowData: [4800, 6000, 9000, 5500, 6000, 10000, 7500],
       },
       monthly: {
         labels: [
@@ -50,11 +44,6 @@ document.addEventListener("DOMContentLoaded", () => {
           9500,
         ],
       },
-      yearly: {
-        labels: ["2018", "2019", "2020", "2021", "2022", "2023", "2024"],
-        blueData: [10000, 12000, 11000, 15000, 13000, 16000, 19000],
-        yellowData: [4000, 5000, 4500, 6000, 7000, 8000, 9000],
-      },
     },
   };
 
@@ -62,16 +51,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const initializeCardSelection = () => {
     const { cards, balanceCard } = elements;
 
+    cards.forEach((card) => {
+      card.style.cursor = "default";
+      card.onclick = null;
+    });
+
     if (balanceCard) {
       balanceCard.classList.add("selected");
     }
-
-    cards.forEach((card) => {
-      card.addEventListener("click", function () {
-        cards.forEach((c) => c.classList.remove("selected"));
-        this.classList.add("selected");
-      });
-    });
   };
 
   // Dropdown Menu
@@ -86,8 +73,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.addEventListener("click", (event) => {
       if (
-        dropdownToggle &&
-        dropdownMenu &&
         !dropdownToggle.contains(event.target) &&
         !dropdownMenu.contains(event.target)
       ) {
@@ -159,7 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    // Create gradients exactly as in the original code
+    // Create gradients
     const blueGradient = ctx.createLinearGradient(0, 0, 0, 300);
     blueGradient.addColorStop(0, "rgba(99, 102, 241, 0.4)");
     blueGradient.addColorStop(1, "rgba(99, 102, 241, 0.0)");
@@ -168,7 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
     yellowGradient.addColorStop(0, "rgba(245, 158, 11, 0.4)");
     yellowGradient.addColorStop(1, "rgba(245, 158, 11, 0.0)");
 
-    // Create chart with exact same options as the original
+    // Create chart with updated Y-axis configuration
     analyticsChart = new Chart(ctx, {
       type: "line",
       data: {
@@ -191,7 +176,7 @@ document.addEventListener("DOMContentLoaded", () => {
             order: 1,
           },
           {
-            label: "Label 1",
+            label: "Label 2",
             data: chartConfig.data.weekly.yellowData,
             borderColor: "rgb(245, 158, 11)",
             backgroundColor: yellowGradient,
@@ -227,9 +212,9 @@ document.addEventListener("DOMContentLoaded", () => {
             usePointStyle: true,
             callbacks: {
               label: function (context) {
-                return (
-                  context.dataset.label + ": " + context.raw.toLocaleString()
-                );
+                return `${
+                  context.dataset.label
+                }: ${context.raw.toLocaleString()}`;
               },
             },
           },
@@ -244,6 +229,11 @@ document.addEventListener("DOMContentLoaded", () => {
               color: "#64748b",
               font: {
                 size: 12,
+                weight: function (context) {
+                  return context.tick && context.tick.label === "Wed"
+                    ? "bold"
+                    : "normal";
+                },
               },
             },
           },
@@ -258,23 +248,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 size: 12,
               },
               callback: function (value) {
-                if (value === 0) return "0k";
-                return value / 1000 + "k";
+                return value / 1000 + "K";
               },
               stepSize: 5000,
+              values: [0, 1000, 5000, 10000, 15000, 20000],
             },
             suggestedMin: 0,
-            suggestedMax: 22000,
+            suggestedMax: 20000,
           },
         },
         interaction: {
           mode: "index",
           intersect: false,
-        },
-        elements: {
-          line: {
-            tension: 0.4,
-          },
         },
       },
     });
@@ -285,11 +270,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!analyticsChart || !chartConfig.data[period]) return;
 
     const data = chartConfig.data[period];
-
     analyticsChart.data.labels = data.labels;
     analyticsChart.data.datasets[0].data = data.blueData;
     analyticsChart.data.datasets[1].data = data.yellowData;
-
     analyticsChart.update();
   };
 

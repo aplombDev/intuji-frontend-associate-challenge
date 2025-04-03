@@ -15,6 +15,22 @@
   width: 100%;
   background-color: var(--text-dark);
   transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+}
+
+.main-container {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  min-height: 100vh;
+  max-width: 1920px;
+  transition: grid-template-columns var(--transition-speed);
+  -webkit-transition: grid-template-columns var(--transition-speed);
+  -moz-transition: grid-template-columns var(--transition-speed);
+  -ms-transition: grid-template-columns var(--transition-speed);
+  -o-transition: grid-template-columns var(--transition-speed);
 }
 
 // Responsive Styles

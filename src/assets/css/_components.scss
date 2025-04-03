@@ -1,19 +1,8 @@
-.main-container {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  min-height: 100vh;
-  max-width: 1920px;
-  transition: grid-template-columns var(--transition-speed);
-  -webkit-transition: grid-template-columns var(--transition-speed);
-  -moz-transition: grid-template-columns var(--transition-speed);
-  -ms-transition: grid-template-columns var(--transition-speed);
-  -o-transition: grid-template-columns var(--transition-speed);
-}
+
 
 .team-separator {
   margin-top: 15px;
   margin-bottom: 15px;
-  border-bottom: 1px solid var(--text-color);
 }
 
 .search-input {
@@ -25,11 +14,7 @@
   outline: none;
 }
 
-.user-name {
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--text-dark);
-}
+
 
 // Main Content Styles
 .content-wrapper {
